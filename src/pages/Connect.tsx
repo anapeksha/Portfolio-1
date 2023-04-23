@@ -16,10 +16,10 @@ const Connect = () => {
 		event.preventDefault();
 		emailjs
 			.sendForm(
-				emailJSConfig.SERVICE_ID,
-				emailJSConfig.TEMPLATE_ID,
+				emailJSConfig.SERVICE_ID as string,
+				emailJSConfig.TEMPLATE_ID as string,
 				form.current,
-				emailJSConfig.PUBLIC_KEY
+				emailJSConfig.PUBLIC_KEY as string
 			)
 			.then((result: any) => {
 				console.log(result);
