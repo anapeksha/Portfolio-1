@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import {
 	Button,
 	Card,
@@ -6,8 +7,27 @@ import {
 	TextField,
 	Typography,
 } from "@mui/material";
+import { useRef } from "react";
+import { emailJSConfig } from "../lib/Constants";
 
 const Connect = () => {
+	const form = useRef<any>();
+	const submitForm = (event: any) => {
+		event.preventDefault();
+		emailjs
+			.sendForm(
+				emailJSConfig.SERVICE_ID,
+				emailJSConfig.TEMPLATE_ID,
+				form.current,
+				emailJSConfig.PUBLIC_KEY
+			)
+			.then((result: any) => {
+				console.log(result);
+			})
+			.catch((error: any) => {
+				console.log(error);
+			});
+	};
 	return (
 		<Grid
 			style={{
@@ -21,11 +41,12 @@ const Connect = () => {
 			<Card>
 				<CardContent>
 					<Typography gutterBottom>Contact Us</Typography>
-					<form>
+					<form ref={form} onSubmit={submitForm}>
 						<Grid container spacing={1}>
 							<Grid xs={12} sm={6} item>
 								<TextField
 									label="First Name"
+									name="first-name"
 									variant="outlined"
 									fullWidth
 									required
@@ -34,6 +55,7 @@ const Connect = () => {
 							<Grid xs={12} sm={6} item>
 								<TextField
 									label="Last Name"
+									name="last-name"
 									variant="outlined"
 									fullWidth
 									required
@@ -42,6 +64,7 @@ const Connect = () => {
 							<Grid item xs={12}>
 								<TextField
 									type="email"
+									name="email"
 									label="Email"
 									variant="outlined"
 									fullWidth
@@ -51,15 +74,16 @@ const Connect = () => {
 							<Grid item xs={12}>
 								<TextField
 									type="number"
+									name="ph-no"
 									label="Phone"
 									variant="outlined"
 									fullWidth
-									required
 								/>
 							</Grid>
 							<Grid item xs={12}>
 								<TextField
 									label="Message"
+									name="message"
 									multiline
 									rows={4}
 									placeholder="Type your message here"
