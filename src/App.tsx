@@ -2,6 +2,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
+import Loader from "./components/Loader";
 import { theme } from "./lib/Constants";
 import Home from "./pages/Home";
 
@@ -14,7 +15,7 @@ const App = () => {
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<Header>
-				<Suspense>
+				<Suspense fallback={<Loader />}>
 					<Routes>
 						<Route path="/" index element={<Home />} />
 						<Route path="blog" element={<Blog />} />
