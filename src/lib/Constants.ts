@@ -39,10 +39,23 @@ const servicesOffered = [
 	"Technical Writing",
 ];
 
+const emailJSConfig = {
+	SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
+	TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
+	PUBLIC_KEY: process.env.EMAILJS_PUBLIC_KEY,
+};
+
 const theme = createTheme({
 	palette: {
 		mode: "dark",
 	},
 });
 
-export { navItems, drawerWidth, theme, whyChooseMe, servicesOffered };
+export {
+	navItems,
+	drawerWidth,
+	theme,
+	whyChooseMe,
+	servicesOffered,
+	emailJSConfig,
+};
