@@ -10,8 +10,10 @@
 		"@mui/material": "^5.12.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-material-ui-carousel": "^3.4.2",
 		"react-router-dom": "^6.10.0",
-		"react-scripts": "5.0.1"
+		"react-scripts": "5.0.1",
+		"react-very-cool-cursor": "^3.4.3"
 	},
 	"devDependencies": {
 		"@types/jest": "^27.0.1",
