@@ -61,7 +61,7 @@ const Header = (props: any) => {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Box sx={{ display: { xs: "none", md: "block", xl: "block" } }}>
+					<Box sx={{ display: { xs: "none", sm: "block" } }}>
 						<Logo height={60} width={60} />
 					</Box>
 
