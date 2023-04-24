@@ -56,7 +56,12 @@ const Connect = () => {
 					{!success ? "Something went wrong" : "Submitted successfully"}
 				</Alert>
 			</Snackbar>
-			<Box>
+			<Box
+				display="flex"
+				justifyContent="center"
+				alignItems="center"
+				height="100vh"
+			>
 				<Card>
 					<CardContent>
 						<Typography gutterBottom>Contact Us</Typography>
