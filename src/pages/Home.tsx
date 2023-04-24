@@ -1,4 +1,5 @@
 import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
+import Carousel from "react-material-ui-carousel";
 import { servicesOffered, whyChooseMe } from "../lib/Constants";
 
 const Home = () => {
@@ -24,12 +25,12 @@ const Home = () => {
 					</Card>
 				</Grid>
 				<Grid xs={12} item>
-					<Typography variant="h5">Why choose me?</Typography>
+					<Typography variant="h5">Services offered</Typography>
 				</Grid>
-				{whyChooseMe.map((item, index) => {
+				{servicesOffered.map((item, index) => {
 					return (
-						<Grid xs={12} item key={index}>
-							<Card>
+						<Grid xs={6} md={3} xl={2} item>
+							<Card style={{ overflowX: "auto" }}>
 								<CardContent>
 									<Typography>{item}</Typography>
 								</CardContent>
@@ -38,19 +39,21 @@ const Home = () => {
 					);
 				})}
 				<Grid xs={12} item>
-					<Typography variant="h5">Services offered</Typography>
+					<Typography variant="h5">Why choose me?</Typography>
 				</Grid>
-				{servicesOffered.map((item, index) => {
-					return (
-						<Grid xs={4} md={3} xl={2} item>
-							<Card>
-								<CardContent>
-									<Typography>{item}</Typography>
-								</CardContent>
-							</Card>
-						</Grid>
-					);
-				})}
+				<Grid xs={12} item>
+					<Carousel autoPlay interval={3000} cycleNavigation animation="slide">
+						{whyChooseMe.map((item, index) => {
+							return (
+								<Card>
+									<CardContent>
+										<Typography>{item}</Typography>
+									</CardContent>
+								</Card>
+							);
+						})}
+					</Carousel>
+				</Grid>
 			</Grid>
 		</Box>
 	);
