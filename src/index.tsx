@@ -2,6 +2,7 @@ import { GlobalStyles } from "@mui/material";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import AnimatedCursor from "react-very-cool-cursor";
 import App from "./App";
 
 const root = ReactDOM.createRoot(
@@ -18,8 +19,19 @@ root.render(
 					body: {
 						WebkitFontSmoothing: "antialiased",
 						MozOsxFontSmoothing: "grayscale",
+						WebkitUserSelect: "none",
+						MsUserSelect: "none",
+						UserSelect: "none",
 					},
 				}}
+			/>
+			<AnimatedCursor
+				innerSize={8}
+				outerSize={24}
+				color="144, 202, 249"
+				outerAlpha={0.2}
+				innerScale={0.7}
+				outerScale={2}
 			/>
 			<App />
 		</BrowserRouter>
