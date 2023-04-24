@@ -1,5 +1,15 @@
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
+import {
+	Avatar,
+	Box,
+	Card,
+	CardContent,
+	Divider,
+	Grid,
+	Stack,
+	Typography,
+} from "@mui/material";
 import Carousel from "react-material-ui-carousel";
+import profilePicture from "../assets/profile-picture.png";
 import { servicesOffered, whyChooseMe } from "../lib/Constants";
 
 const Home = () => {
@@ -13,14 +23,30 @@ const Home = () => {
 				<Grid xs={12} item>
 					<Card>
 						<CardContent>
-							<Typography>
-								As a Content Specialist with over 3 years of experience, I am
-								passionate about crafting engaging and impactful content that
-								resonates with audiences. With expertise in diverse niches
-								including Finance, Education, Sports, iGames, News, Travel, IT,
-								and more, I strive to create content that informs, inspires, and
-								captivates readers. Name your expectations and you will have it!
-							</Typography>
+							<Stack
+								direction="row"
+								divider={<Divider orientation="vertical" flexItem />}
+								spacing={2}
+							>
+								<Avatar
+									alt="Soumili Roy"
+									src={profilePicture}
+									sx={{
+										width: { xs: 125, sm: 100, md: 75 },
+										height: { xs: 125, sm: 100, md: 75 },
+									}}
+								/>
+
+								<Typography>
+									As a Content Specialist with over 3 years of experience, I am
+									passionate about crafting engaging and impactful content that
+									resonates with audiences. With expertise in diverse niches
+									including Finance, Education, Sports, iGames, News, Travel,
+									IT, and more, I strive to create content that informs,
+									inspires, and captivates readers. Name your expectations and
+									you will have it!
+								</Typography>
+							</Stack>
 						</CardContent>
 					</Card>
 				</Grid>
