@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import AnimatedCursor from "react-very-cool-cursor";
 import App from "./App";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -37,3 +38,5 @@ root.render(
 		</BrowserRouter>
 	</React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
