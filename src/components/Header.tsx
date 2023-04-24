@@ -66,8 +66,8 @@ const Header = (props: any) => {
 					</Box>
 
 					<Box
-						style={{
-							display: "flex",
+						sx={{
+							display: { xs: "none", sm: "flex" },
 							justifyContent: "end",
 							width: "100vw",
 						}}
