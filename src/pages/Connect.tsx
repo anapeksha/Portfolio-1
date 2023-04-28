@@ -11,7 +11,7 @@ import {
 	Typography,
 } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
-import { emailJSConfig } from "../lib/Constants";
+import { connectFormData, emailJSConfig } from "../lib/Constants";
 
 const Connect = () => {
 	const form = useRef<any>();
@@ -67,55 +67,50 @@ const Connect = () => {
 						<Typography gutterBottom>Contact Us</Typography>
 						<form ref={form} onSubmit={submitForm}>
 							<Grid container spacing={1}>
-								<Grid xs={12} sm={6} item>
-									<TextField
-										label="First Name"
-										name="first-name"
-										variant="outlined"
-										fullWidth
-										required
-									/>
-								</Grid>
-								<Grid xs={12} sm={6} item>
-									<TextField
-										label="Last Name"
-										name="last-name"
-										variant="outlined"
-										fullWidth
-										required
-									/>
-								</Grid>
-								<Grid item xs={12}>
-									<TextField
-										type="email"
-										name="email"
-										label="Email"
-										variant="outlined"
-										fullWidth
-										required
-									/>
-								</Grid>
-								<Grid item xs={12}>
-									<TextField
-										type="number"
-										name="ph-no"
-										label="Phone"
-										variant="outlined"
-										fullWidth
-									/>
-								</Grid>
-								<Grid item xs={12}>
-									<TextField
-										label="Message"
-										name="message"
-										multiline
-										rows={4}
-										placeholder="Type your message here"
-										variant="outlined"
-										fullWidth
-										required
-									/>
-								</Grid>
+								{connectFormData.map((data, index) => {
+									if (data.required && data.name !== "message") {
+										return (
+											<Grid xs={12} sm={6} item key={index}>
+												<TextField
+													label={data.label}
+													name={data.name}
+													type={data.type}
+													variant="outlined"
+													fullWidth
+													required
+												/>
+											</Grid>
+										);
+									} else if (data.required && data.name === "message") {
+										return (
+											<Grid item xs={12}>
+												<TextField
+													label={data.label}
+													name={data.name}
+													multiline
+													rows={4}
+													placeholder="Type your message here"
+													variant="outlined"
+													fullWidth
+													required
+												/>
+											</Grid>
+										);
+									} else {
+										return (
+											<Grid xs={12} sm={6} item key={index}>
+												<TextField
+													label={data.label}
+													name={data.name}
+													type={data.type}
+													variant="outlined"
+													fullWidth
+												/>
+											</Grid>
+										);
+									}
+								})}
+
 								<Grid item xs={12}>
 									<Button
 										type="submit"

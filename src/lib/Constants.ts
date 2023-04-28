@@ -58,6 +58,39 @@ const theme = createTheme({
 	},
 });
 
+const connectFormData = [
+	{
+		type: "text",
+		label: "First Name",
+		name: "first-name",
+		required: true,
+	},
+	{
+		type: "text",
+		label: "Last Name",
+		name: "last-name",
+		required: true,
+	},
+	{
+		type: "email",
+		label: "Email",
+		name: "email",
+		required: true,
+	},
+	{
+		type: "number",
+		label: "Phone",
+		name: "ph-no",
+		required: false,
+	},
+	{
+		type: "text",
+		label: "Message",
+		name: "message",
+		required: true,
+	},
+];
+
 export {
 	navItems,
 	drawerWidth,
@@ -68,4 +101,5 @@ export {
 	intro,
 	heading1,
 	heading2,
+	connectFormData,
 };
