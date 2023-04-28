@@ -10,18 +10,24 @@ import {
 } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import profilePicture from "../assets/profile-picture.png";
-import { servicesOffered, whyChooseMe } from "../lib/Constants";
+import {
+	heading1,
+	heading2,
+	intro,
+	servicesOffered,
+	whyChooseMe,
+} from "../lib/Constants";
 
 const Home = () => {
 	return (
 		<Box>
-			<Typography variant="h3">Hi, I am Soumili Roy</Typography>
+			<Typography variant="h3">{heading1}</Typography>
 			<Typography variant="subtitle1" gutterBottom>
-				Your go-to freelance content writer and editor!
+				{heading2}
 			</Typography>
 			<Grid container spacing={4}>
 				<Grid xs={12} item>
-					<Card>
+					<Card style={{ display: "flex", justifyContent: "center" }}>
 						<CardContent>
 							<Stack
 								direction="row"
@@ -37,15 +43,7 @@ const Home = () => {
 									}}
 								/>
 
-								<Typography>
-									As a Content Specialist with over 3 years of experience, I am
-									passionate about crafting engaging and impactful content that
-									resonates with audiences. With expertise in diverse niches
-									including Finance, Education, Sports, iGames, News, Travel,
-									IT, and more, I strive to create content that informs,
-									inspires, and captivates readers. Name your expectations and
-									you will have it!
-								</Typography>
+								<Typography>{intro}</Typography>
 							</Stack>
 						</CardContent>
 					</Card>

@@ -18,6 +18,13 @@ const whyChooseMe = [
 	"Content Editing and Proofreading: I offer editing and proofreading services to ensure that your content is error-free, grammatically correct, and well-polished. I can help you refine your content to make it professional, engaging, and audience-friendly.",
 ];
 
+const intro =
+	"As a Content Specialist with over 3 years of experience, I am passionate about crafting engaging and impactful content that resonates with audiences. With expertise in diverse niches including Finance, Education, Sports, iGames, News, Travel, IT, and more, I strive to create content that informs, inspires, and captivates readers. Name your expectations and you will have it!";
+
+const heading1 = "Hi, I am Soumili Roy";
+
+const heading2 = "Your go-to freelance content writer and editor!";
+
 const servicesOffered = [
 	"Content Creation",
 	"Content Strategy",
@@ -58,4 +65,7 @@ export {
 	whyChooseMe,
 	servicesOffered,
 	emailJSConfig,
+	intro,
+	heading1,
+	heading2,
 };
