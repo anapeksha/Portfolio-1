@@ -7,7 +7,6 @@ import { theme } from "./lib/Constants";
 import Home from "./pages/Home";
 
 const Connect = lazy(() => import("./pages/Connect"));
-const Review = lazy(() => import("./pages/Review"));
 const Blog = lazy(() => import("./pages/Blog"));
 
 const App = () => {
@@ -19,7 +18,6 @@ const App = () => {
 					<Routes>
 						<Route path="/" index element={<Home />} />
 						<Route path="blog" element={<Blog />} />
-						<Route path="review" element={<Review />} />
 						<Route path="connect" element={<Connect />} />
 					</Routes>
 				</Suspense>
