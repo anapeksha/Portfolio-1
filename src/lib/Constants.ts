@@ -3,7 +3,6 @@ import { createTheme } from "@mui/material";
 const navItems = [
 	{ name: "Home", url: "/" },
 	{ name: "Blog", url: "blog" },
-	{ name: "Review", url: "review" },
 	{ name: "Connect", url: "connect" },
 ];
 const drawerWidth = 240;
@@ -50,6 +49,11 @@ const emailJSConfig = {
 	SERVICE_ID: process.env.REACT_APP_EMAILJS_SERVICE_ID,
 	TEMPLATE_ID: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
 	PUBLIC_KEY: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
+};
+
+const contentfulConfig = {
+	CONTENTFUL_SPACE: process.env.REACT_APP_CONTENTFUL_SPACE,
+	CONTENTFUL_TOKEN: process.env.REACT_APP_CONTENTFUL_TOKEN,
 };
 
 const theme = createTheme({
@@ -102,4 +106,5 @@ export {
 	heading1,
 	heading2,
 	connectFormData,
+	contentfulConfig,
 };
