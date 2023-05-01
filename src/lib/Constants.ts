@@ -52,6 +52,11 @@ const emailJSConfig = {
 	PUBLIC_KEY: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
 };
 
+const contentfulConfig = {
+	CONTENTFUL_SPACE: process.env.REACT_APP_CONTENTFUL_SPACE,
+	CONTENTFUL_TOKEN: process.env.REACT_APP_CONTENTFUL_TOKEN,
+};
+
 const theme = createTheme({
 	palette: {
 		mode: "dark",
@@ -102,4 +107,5 @@ export {
 	heading1,
 	heading2,
 	connectFormData,
+	contentfulConfig,
 };
