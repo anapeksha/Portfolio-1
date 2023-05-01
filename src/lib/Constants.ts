@@ -3,7 +3,6 @@ import { createTheme } from "@mui/material";
 const navItems = [
 	{ name: "Home", url: "/" },
 	{ name: "Blog", url: "blog" },
-	{ name: "Review", url: "review" },
 	{ name: "Connect", url: "connect" },
 ];
 const drawerWidth = 240;
