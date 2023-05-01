@@ -39,6 +39,7 @@ const Blog = () => {
 									open={open}
 									setOpen={setOpen}
 									heading={blog.fields.heading}
+									modified={blog.sys.updatedAt}
 									body={documentToReactComponents(blog.fields.body)}
 								/>
 							</>
