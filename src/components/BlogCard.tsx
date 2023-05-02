@@ -27,7 +27,17 @@ const BlogCard = (props: ICard) => {
 			}}
 		>
 			<CardContent>
-				<Typography gutterBottom variant="h5">
+				<Typography
+					sx={{
+						overflow: "hidden",
+						textOverflow: "ellipsis",
+						display: "-webkit-box",
+						WebkitLineClamp: "2",
+						WebkitBoxOrient: "vertical",
+					}}
+					gutterBottom
+					variant="h5"
+				>
 					{props.heading}
 				</Typography>
 				<Typography
