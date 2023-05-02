@@ -21,29 +21,37 @@ import {
 const Home = () => {
 	return (
 		<Box>
-			<Typography variant="h3">{heading1}</Typography>
-			<Typography variant="subtitle1" gutterBottom>
-				{heading2}
-			</Typography>
 			<Grid container spacing={4}>
 				<Grid xs={12} item>
 					<Card style={{ display: "flex", justifyContent: "center" }}>
 						<CardContent>
 							<Stack
-								direction="row"
+								direction={{ xs: "column", md: "row" }}
 								divider={<Divider orientation="vertical" flexItem />}
 								spacing={2}
 							>
 								<Avatar
 									alt="Soumili Roy"
 									src={profilePicture}
+									variant="rounded"
 									sx={{
-										width: { xs: 125, sm: 100, md: 75 },
-										height: { xs: 125, sm: 100, md: 75 },
+										width: { xs: 350, md: 500 },
+										height: { xs: 350, md: 500 },
 									}}
 								/>
-
-								<Typography>{intro}</Typography>
+								<Box
+									sx={{
+										display: "flex",
+										flexDirection: "column",
+										justifyContent: "center",
+									}}
+								>
+									<Typography variant="h3">{heading1}</Typography>
+									<Typography variant="h5" gutterBottom>
+										{heading2}
+									</Typography>
+									<Typography variant="body1">{intro}</Typography>
+								</Box>
 							</Stack>
 						</CardContent>
 					</Card>

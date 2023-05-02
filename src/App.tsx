@@ -18,7 +18,7 @@ const App = () => {
 					<Routes>
 						<Route path="/" index element={<Home />} />
 						<Route path="blog" element={<Blog />} />
-						<Route path="connect" element={<Connect />} />
+						<Route path="get-in-touch" element={<Connect />} />
 					</Routes>
 				</Suspense>
 			</Header>
