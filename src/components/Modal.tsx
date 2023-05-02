@@ -24,18 +24,21 @@ const Modal = (props: any) => {
 	};
 	return (
 		<Dialog fullScreen={fullScreen} open={props.open} onClose={handleClose}>
-			<AppBar sx={{ position: "relative" }}>
-				<Toolbar>
-					<IconButton
-						edge="start"
-						color="inherit"
-						aria-label="close"
-						onClick={handleClose}
-					>
-						<CloseIcon />
-					</IconButton>
-				</Toolbar>
-			</AppBar>
+			{fullScreen && (
+				<AppBar sx={{ position: "relative" }} color="secondary">
+					<Toolbar>
+						<IconButton
+							edge="start"
+							color="inherit"
+							aria-label="close"
+							size="small"
+							onClick={handleClose}
+						>
+							<CloseIcon />
+						</IconButton>
+					</Toolbar>
+				</AppBar>
+			)}
 			<DialogTitle>{props.heading}</DialogTitle>
 			<DialogContent>
 				<Typography variant="caption">

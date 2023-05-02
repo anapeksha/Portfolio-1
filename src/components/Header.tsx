@@ -50,7 +50,7 @@ const Header = (props: any) => {
 
 	return (
 		<Box>
-			<AppBar component="nav">
+			<AppBar component="nav" color="secondary">
 				<Toolbar>
 					<IconButton
 						color="inherit"
