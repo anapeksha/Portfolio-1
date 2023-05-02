@@ -9,17 +9,18 @@ import { contentfulConfig } from "../lib/Constants";
 const Blog = () => {
 	const [blogs, setBlogs] = useState<any>();
 	const [open, setOpen] = useState(false);
+	const [modalData, setModalData] = useState<any>();
 	const [loading, setLoading] = useState(false);
 	const client = createClient({
 		accessToken: contentfulConfig.CONTENTFUL_TOKEN as string,
 		space: contentfulConfig.CONTENTFUL_SPACE as string,
 	});
-
 	useEffect(() => {
 		setLoading(true);
 		client.getEntries().then((res) => {
 			setLoading(false);
 			setBlogs(res.items);
+			console.log(res.items);
 		});
 	}, []);
 
@@ -46,19 +47,24 @@ const Blog = () => {
 										<BlogCard
 											heading={blog.fields.heading}
 											description={blog.fields.description}
-											setOpen={setOpen}
+											handleOpen={() => {
+												setOpen(true);
+												setModalData(blog);
+											}}
 										/>
 									</Grid>
-									<Modal
-										open={open}
-										setOpen={setOpen}
-										heading={blog.fields.heading}
-										modified={blog.sys.updatedAt}
-										body={documentToReactComponents(blog.fields.body)}
-									/>
 								</>
 							);
 					  })}
+				{modalData && (
+					<Modal
+						open={open}
+						setOpen={setOpen}
+						heading={modalData.fields.heading}
+						modified={modalData.sys.updatedAt}
+						body={documentToReactComponents(modalData.fields.body)}
+					/>
+				)}
 			</Grid>
 		</>
 	);
