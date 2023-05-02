@@ -5,18 +5,14 @@ import {
 	CardContent,
 	Typography,
 } from "@mui/material";
-import React from "react";
 
 interface ICard {
 	heading: string;
 	description: string;
-	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+	handleOpen: () => void;
 }
 
 const BlogCard = (props: ICard) => {
-	const handleOpen = () => {
-		props.setOpen(true);
-	};
 	return (
 		<Card
 			sx={{
@@ -54,7 +50,7 @@ const BlogCard = (props: ICard) => {
 				</Typography>
 			</CardContent>
 			<CardActions>
-				<Button size="small" onClick={handleOpen}>
+				<Button size="small" onClick={props.handleOpen}>
 					Read More
 				</Button>
 			</CardActions>
