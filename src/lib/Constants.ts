@@ -58,7 +58,7 @@ const contentfulConfig = {
 
 const theme = createTheme({
 	palette: {
-		mode: "light",
+		mode: "dark",
 	},
 });
 

@@ -61,7 +61,7 @@ const Home = () => {
 				</Grid>
 				{servicesOffered.map((item, index) => {
 					return (
-						<Grid xs={6} md={3} xl={2} item>
+						<Grid xs={6} md={3} xl={2} key={index} item>
 							<Card style={{ overflowX: "auto" }}>
 								<CardContent>
 									<Typography>{item}</Typography>
@@ -77,7 +77,7 @@ const Home = () => {
 					<Carousel autoPlay interval={3000} cycleNavigation animation="slide">
 						{whyChooseMe.map((item, index) => {
 							return (
-								<Card>
+								<Card key={index}>
 									<CardContent>
 										<Typography>{item}</Typography>
 									</CardContent>
