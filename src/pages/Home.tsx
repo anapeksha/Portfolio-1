@@ -14,6 +14,7 @@ import {
 	heading1,
 	heading2,
 	intro,
+	callToAction,
 	servicesOffered,
 	whyChooseMe,
 } from "../lib/Constants";
@@ -46,11 +47,34 @@ const Home = () => {
 										justifyContent: "center",
 									}}
 								>
-									<Typography variant="h3">{heading1}</Typography>
-									<Typography variant="h5" gutterBottom>
+									<Typography
+										variant="h3"
+										fontFamily="Merriweather, serif"
+										fontWeight={700}
+										fontStyle="bold"
+									>
+										{heading1}
+									</Typography>
+									<Typography
+										variant="h5"
+										gutterBottom
+										fontFamily="Merriweather, serif"
+										fontWeight={700}
+										fontStyle="italic"
+									>
 										{heading2}
 									</Typography>
-									<Typography variant="body1">{intro}</Typography>
+									<Typography
+										variant="body1"
+										gutterBottom
+										fontFamily="Merriweather, serif"
+										fontWeight={400}
+									>
+										{intro}
+									</Typography>
+									<Typography variant="body1" fontWeight={900} fontSize={17}>
+										{callToAction}
+									</Typography>
 								</Box>
 							</Stack>
 						</CardContent>
