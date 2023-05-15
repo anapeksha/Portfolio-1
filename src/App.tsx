@@ -3,6 +3,7 @@ import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Loader from "./components/Loader";
+import Footer from "./components/Footer";
 import { theme } from "./lib/Constants";
 import Home from "./pages/Home";
 
@@ -22,6 +23,7 @@ const App = () => {
 					</Routes>
 				</Suspense>
 			</Header>
+			<Footer />
 		</ThemeProvider>
 	);
 };
