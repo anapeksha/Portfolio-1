@@ -18,11 +18,14 @@ const whyChooseMe = [
 ];
 
 const intro =
-	"As a Content Specialist with over 3 years of experience, I am passionate about crafting engaging and impactful content that resonates with audiences. With expertise in diverse niches including Finance, Education, Sports, iGames, News, Travel, IT, and more, I strive to create content that informs, inspires, and captivates readers. Name your expectations and you will have it!";
+	"At the intersection of art and narrative, lies the transformative power of storytelling. I am Soumili Roy, a Content Specialist with 4 years of experience, driven by the belief that words have the ability to shape perceptions, provoke emotions, and ignite change. With a passion for crafting captivating content, I have made it my mission to serve as a catalyst for brands, inspiring them to take decisive action. Creating content is more than weaving words together; it is an art form that holds the potential to propel brands to new heights. It is through the fusion of creativity, strategy, and purpose that I harness the true power of storytelling. Every brand has a unique story waiting to be told, and I am here to help unleash its full potential.";
 
-const heading1 = "Hi, I am Soumili Roy";
+const callToAction =
+	"Are you ready to tell your story? Let's make it unforgettable.";
 
-const heading2 = "Your go-to freelance content writer and editor!";
+const heading1 = "Soumili Roy";
+
+const heading2 = "Empowering Brands for a Better Tomorrow";
 
 const servicesOffered = [
 	"Content Creation",
@@ -103,6 +106,7 @@ export {
 	servicesOffered,
 	emailJSConfig,
 	intro,
+	callToAction,
 	heading1,
 	heading2,
 	connectFormData,
