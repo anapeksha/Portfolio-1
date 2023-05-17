@@ -3,8 +3,8 @@ import { grey } from "@mui/material/colors";
 
 const Blockquote = styled("div")({
 	fontStyle: "italic",
-	color: grey[800],
-	borderLeft: `4px solid ${grey["A100"]}`,
+	color: grey[300],
+	borderLeft: `3px solid ${grey["A100"]}`,
 });
 
 export default Blockquote;
