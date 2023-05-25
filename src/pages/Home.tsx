@@ -9,7 +9,6 @@ import {
 	Stack,
 	Typography,
 } from "@mui/material";
-import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import profilePicture from "../assets/img-profile.jpeg";
@@ -17,15 +16,31 @@ import {
 	callToAction,
 	heading1,
 	heading2,
-	intro,
+	heading3,
+	heading4,
+	intro_part1,
+	intro_part2,
 	servicesOffered,
 	whyChooseMe,
 } from "../lib/Constants";
 
 const Home = () => {
+	const responsive = {
+		0: {
+			items: 1,
+		},
+		512: {
+			items: 2,
+		},
+		1024: {
+			items: 4,
+		},
+	};
+	const handleDragStart = (e: React.DragEvent<HTMLDivElement>) =>
+		e.preventDefault();
 	const items = whyChooseMe.map((item, index) => {
 		return (
-			<Box sx={{ margin: "20px" }}>
+			<Box sx={{ margin: "20px" }} onDragStart={handleDragStart}>
 				<Card sx={{ width: "250" }}>
 					<CardMedia
 						component="img"
@@ -51,18 +66,6 @@ const Home = () => {
 			</Box>
 		);
 	});
-	const responsive = {
-		0: {
-			items: 1,
-		},
-		512: {
-			items: 2,
-		},
-		1024: {
-			items: 4,
-		},
-	};
-	const handleDragStart = (e: React.DragEvent) => e.preventDefault();
 
 	return (
 		<Box>
@@ -83,16 +86,24 @@ const Home = () => {
 										width: { xs: 350, md: 500 },
 										height: { xs: 350, md: 500 },
 									}}
+									style={{
+										display: "inline-block",
+										margin: "0 0.5rem",
+										animation: "backInLeft",
+										animationDuration: "2s",
+									}}
 								/>
 								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										justifyContent: "center",
+									style={{
+										display: "inline-block",
+										margin: "0 0.5rem",
+										animation: "backInLeft",
+										animationDuration: "2s",
 									}}
 								>
 									<Typography
 										variant="h3"
+										component="h1"
 										fontFamily="Merriweather, serif"
 										fontWeight={700}
 										fontStyle="bold"
@@ -114,7 +125,31 @@ const Home = () => {
 										fontFamily="Merriweather, serif"
 										fontWeight={400}
 									>
-										{intro}
+										{intro_part1}
+									</Typography>
+									<Typography
+										variant="body1"
+										gutterBottom
+										fontFamily="Merriweather, serif"
+										fontWeight={400}
+									>
+										{intro_part2}
+									</Typography>
+									<Typography
+										variant="body1"
+										gutterBottom
+										fontFamily="Merriweather, serif"
+										fontWeight={400}
+									>
+										{heading3}
+									</Typography>
+									<Typography
+										variant="body1"
+										gutterBottom
+										fontFamily="Merriweather, serif"
+										fontWeight={400}
+									>
+										{heading4}
 									</Typography>
 									<Typography variant="body1" fontWeight={900} fontSize={17}>
 										{callToAction}
@@ -130,7 +165,7 @@ const Home = () => {
 				{servicesOffered.map((item, index) => {
 					return (
 						<Grid xs={6} md={3} xl={2} key={index} item>
-							<Card style={{ overflowX: "auto" }}>
+							<Card>
 								<CardContent>
 									<Typography>{item}</Typography>
 								</CardContent>
