@@ -80,15 +80,22 @@ const whyChooseMe = [
 	},
 ];
 
-const intro =
-	"At the intersection of art and narrative, lies the transformative power of storytelling. I am Soumili Roy, a Content Specialist with 4 years of experience, driven by the belief that words have the ability to shape perceptions, provoke emotions, and ignite change. With a passion for crafting captivating content, I have made it my mission to serve as a catalyst for brands, inspiring them to take decisive action. Creating content is more than weaving words together; it is an art form that holds the potential to propel brands to new heights. It is through the fusion of creativity, strategy, and purpose that I harness the true power of storytelling. Every brand has a unique story waiting to be told, and I am here to help unleash its full potential.";
+const intro_part1 =
+	"At the intersection of art and narrative, lies the transformative power of storytelling. I am Soumili Roy, a Content Specialist with 4 years of experience, driven by the belief that words have the ability to shape perceptions, provoke emotions, and ignite change. With a passion for crafting captivating content, I have made it my mission to serve as a catalyst for brands, inspiring them to take decisive action.";
 
+const intro_part2 =
+	" Creating content is more than weaving words together; it is an art form that holds the potential to propel brands to new heights. It is through the fusion of creativity, strategy, and purpose that I harness the true power of storytelling. Every brand has a unique story waiting to be told, and I am here to help unleash its full potential.";
 const callToAction =
 	"Are you ready to tell your story? Let's make it unforgettable.";
 
 const heading1 = "Soumili Roy";
 
 const heading2 = "Empowering Brands for a Better Tomorrow";
+
+const heading3 =
+	"Imagine articles that effortlessly educate and entertain, blog posts that whisk readers away to extraordinary worlds, and website copy that casts a spell on visitors, compelling them to take that next step. With my expertise, your content will not only stand out from the crowd but also leave a lasting impact.";
+const heading4 =
+	"I study you. Take out secrets that makes your brand unique. Then, write a powerful story. The result? Content that not only connects with your target audience but also amplifies your BRAND'S VOICE in ways you never thought possible.";
 
 const servicesOffered = [
 	"Content Creation",
@@ -168,10 +175,13 @@ export {
 	whyChooseMe,
 	servicesOffered,
 	emailJSConfig,
-	intro,
+	intro_part1,
+	intro_part2,
 	callToAction,
 	heading1,
 	heading2,
+	heading3,
+	heading4,
 	connectFormData,
 	contentfulConfig,
 };

@@ -16,7 +16,10 @@ import {
 	callToAction,
 	heading1,
 	heading2,
-	intro,
+	heading3,
+	heading4,
+	intro_part1,
+	intro_part2,
 	servicesOffered,
 	whyChooseMe,
 } from "../lib/Constants";
@@ -100,6 +103,7 @@ const Home = () => {
 								>
 									<Typography
 										variant="h3"
+										component="h1"
 										fontFamily="Merriweather, serif"
 										fontWeight={700}
 										fontStyle="bold"
@@ -121,7 +125,31 @@ const Home = () => {
 										fontFamily="Merriweather, serif"
 										fontWeight={400}
 									>
-										{intro}
+										{intro_part1}
+									</Typography>
+									<Typography
+										variant="body1"
+										gutterBottom
+										fontFamily="Merriweather, serif"
+										fontWeight={400}
+									>
+										{intro_part2}
+									</Typography>
+									<Typography
+										variant="body1"
+										gutterBottom
+										fontFamily="Merriweather, serif"
+										fontWeight={400}
+									>
+										{heading3}
+									</Typography>
+									<Typography
+										variant="body1"
+										gutterBottom
+										fontFamily="Merriweather, serif"
+										fontWeight={400}
+									>
+										{heading4}
 									</Typography>
 									<Typography variant="body1" fontWeight={900} fontSize={17}>
 										{callToAction}
