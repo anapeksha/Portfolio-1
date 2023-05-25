@@ -9,7 +9,6 @@ import {
 	Stack,
 	Typography,
 } from "@mui/material";
-import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import profilePicture from "../assets/img-profile.jpeg";
@@ -23,9 +22,22 @@ import {
 } from "../lib/Constants";
 
 const Home = () => {
+	const responsive = {
+		0: {
+			items: 1,
+		},
+		512: {
+			items: 2,
+		},
+		1024: {
+			items: 4,
+		},
+	};
+	const handleDragStart = (e: React.DragEvent<HTMLDivElement>) =>
+		e.preventDefault();
 	const items = whyChooseMe.map((item, index) => {
 		return (
-			<Box sx={{ margin: "20px" }}>
+			<Box sx={{ margin: "20px" }} onDragStart={handleDragStart}>
 				<Card sx={{ width: "250" }}>
 					<CardMedia
 						component="img"
@@ -51,18 +63,6 @@ const Home = () => {
 			</Box>
 		);
 	});
-	const responsive = {
-		0: {
-			items: 1,
-		},
-		512: {
-			items: 2,
-		},
-		1024: {
-			items: 4,
-		},
-	};
-	const handleDragStart = (e: React.DragEvent) => e.preventDefault();
 
 	return (
 		<Box>
@@ -83,12 +83,19 @@ const Home = () => {
 										width: { xs: 350, md: 500 },
 										height: { xs: 350, md: 500 },
 									}}
+									style={{
+										display: "inline-block",
+										margin: "0 0.5rem",
+										animation: "backInLeft",
+										animationDuration: "2s",
+									}}
 								/>
 								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										justifyContent: "center",
+									style={{
+										display: "inline-block",
+										margin: "0 0.5rem",
+										animation: "backInLeft",
+										animationDuration: "2s",
 									}}
 								>
 									<Typography
@@ -130,7 +137,7 @@ const Home = () => {
 				{servicesOffered.map((item, index) => {
 					return (
 						<Grid xs={6} md={3} xl={2} key={index} item>
-							<Card style={{ overflowX: "auto" }}>
+							<Card>
 								<CardContent>
 									<Typography>{item}</Typography>
 								</CardContent>
