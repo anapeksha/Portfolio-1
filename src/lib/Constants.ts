@@ -8,13 +8,41 @@ const navItems = [
 const drawerWidth = 240;
 
 const whyChooseMe = [
-	"Experience: With over 3 years of professional experience in the field of content creation, I have honed my skills in crafting high-quality and effective content that meets the needs of my clients and engages with their target audience.",
-	"Expertise: My content expertise spans across various niches, including Finance, Education, Sports, iGames, Travel, IT, and more. I have a deep understanding of these subjects and can create content that is informative, engaging, and tailored to the specific needs of each niche.",
-	"Creativity: I believe in the power of creativity to make content stand out. I strive to bring a fresh perspective and innovative ideas to every project, creating content that is unique, captivating, and memorable.",
-	"Results-Driven: I am committed to delivering results through my content. Whether it's increasing website traffic, improving search engine rankings, or driving engagement on social media, I focus on creating content that achieves tangible outcomes for my clients.",
-	"Content Creation: I specialize in creating high-quality and engaging content for websites, blogs, social media, and other platforms. From articles and blog posts to social media updates and product descriptions, I can craft content that resonates with your target audience and meets your specific goals.",
-	"Content Strategy: I can help you develop a content strategy that aligns with your business objectives, target audience, and brand voice. From content planning and research to content calendar creation and content optimization, I can provide strategic  to ensure your content is effective and impactful.",
-	"Content Editing and Proofreading: I offer editing and proofreading services to ensure that your content is error-free, grammatically correct, and well-polished. I can help you refine your content to make it professional, engaging, and audience-friendly.",
+	{
+		src: "https://images.unsplash.com/photo-1647529734753-c4748d7ee5f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+		body: "Storyteller",
+		alt: "man reading a book written, part one-How does storytelling work",
+	},
+	{
+		src: "https://images.unsplash.com/photo-1585521549926-ca6526bda09e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+		body: "Business Branding",
+		alt: "a pile of books",
+	},
+	{
+		src: "https://images.unsplash.com/photo-1622782914767-404fb9ab3f57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
+		body: "Increased Engagement and Reach",
+		alt: "a pile of books",
+	},
+	{
+		src: "https://images.unsplash.com/photo-1590845947698-8924d7409b56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+		body: "Business Branding",
+		alt: "a pile of books",
+	},
+	{
+		src: "https://images.unsplash.com/photo-1585521549926-ca6526bda09e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+		body: "Originality",
+		alt: "a pile of books",
+	},
+	{
+		src: "https://images.unsplash.com/photo-1510861320402-285a6c7639ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=428&q=80",
+		body: "Quality-driven and Creative",
+		alt: "a pile of books",
+	},
+	{
+		src: "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80",
+		body: "Strategic Brand Positioning",
+		alt: "a pile of books",
+	},
 ];
 
 const intro =
@@ -61,7 +89,7 @@ const contentfulConfig = {
 
 const theme = createTheme({
 	palette: {
-		mode: "dark",
+		mode: "light",
 	},
 });
 

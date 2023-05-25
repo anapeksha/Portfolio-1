@@ -3,23 +3,67 @@ import {
 	Box,
 	Card,
 	CardContent,
+	CardMedia,
 	Divider,
 	Grid,
 	Stack,
 	Typography,
 } from "@mui/material";
-import Carousel from "react-material-ui-carousel";
-import profilePicture from "../assets/profile-picture.png";
+import React from "react";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import profilePicture from "../assets/img-profile.jpeg";
 import {
+	callToAction,
 	heading1,
 	heading2,
 	intro,
-	callToAction,
 	servicesOffered,
 	whyChooseMe,
 } from "../lib/Constants";
 
 const Home = () => {
+	const items = whyChooseMe.map((item, index) => {
+		return (
+			<Box sx={{ margin: "20px" }}>
+				<Card sx={{ width: "250" }}>
+					<CardMedia
+						component="img"
+						width="180"
+						height="345"
+						image={item.src}
+						alt={item.alt}
+					/>
+					<CardContent>
+						<Typography
+							sx={{
+								overflow: "hidden",
+								textOverflow: "ellipsis",
+								display: "-webkit-box",
+								WebkitLineClamp: "1",
+								WebkitBoxOrient: "vertical",
+							}}
+						>
+							{item.body}
+						</Typography>
+					</CardContent>
+				</Card>
+			</Box>
+		);
+	});
+	const responsive = {
+		0: {
+			items: 1,
+		},
+		512: {
+			items: 2,
+		},
+		1024: {
+			items: 4,
+		},
+	};
+	const handleDragStart = (e: React.DragEvent) => e.preventDefault();
+
 	return (
 		<Box>
 			<Grid container spacing={4}>
@@ -97,19 +141,15 @@ const Home = () => {
 				<Grid xs={12} item>
 					<Typography variant="h5">Why choose me?</Typography>
 				</Grid>
-				<Grid xs={12} item>
-					<Carousel autoPlay interval={3000} cycleNavigation animation="slide">
-						{whyChooseMe.map((item, index) => {
-							return (
-								<Card key={index}>
-									<CardContent>
-										<Typography>{item}</Typography>
-									</CardContent>
-								</Card>
-							);
-						})}
-					</Carousel>
-				</Grid>
+				<AliceCarousel
+					mouseTracking
+					infinite
+					disableDotsControls
+					disableButtonsControls
+					responsive={responsive}
+					items={items}
+					autoPlay
+				/>
 			</Grid>
 		</Box>
 	);
