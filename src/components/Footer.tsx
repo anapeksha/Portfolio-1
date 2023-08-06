@@ -24,7 +24,7 @@ const Footer = () => {
 				value="https://www.linkedin.com/in/soumiliroy"
 			/>
 			<CustomBottomNavigationAction
-				label="Instagram"
+				label="Pinterest"
 				icon={<PinterestIcon />}
 				value="https://in.pinterest.com/sohavoc"
 			/>
