@@ -57,7 +57,7 @@ const Blog = () => {
 				return <Typography variant="h6">{children}</Typography>;
 			},
 			[BLOCKS.PARAGRAPH]: (node, children) => {
-				return <Typography variant="body1">{children}</Typography>;
+				return <Typography variant="body1" gutterBottom>{children}</Typography>;
 			},
 			[BLOCKS.HR]: (node, children) => {
 				return <Divider />;
@@ -65,6 +65,7 @@ const Blog = () => {
 			[BLOCKS.QUOTE]: (node, children) => {
 				return <Blockquote>{children}</Blockquote>;
 			},
+			
 		},
 	};
 

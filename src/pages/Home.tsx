@@ -8,18 +8,21 @@ import {
 	Grid,
 	Stack,
 	Typography,
+	styled,
 } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
+import Countup from "../components/Countup";
 import "react-alice-carousel/lib/alice-carousel.css";
 import profilePicture from "../assets/img-profile.jpeg";
 import {
 	callToAction,
 	heading1,
 	heading2,
-	heading3,
+	statistics3,
 	heading4,
 	intro_part1,
 	intro_part2,
+	intro_part3,
 	servicesOffered,
 	whyChooseMe,
 } from "../lib/Constants";
@@ -38,10 +41,18 @@ const Home = () => {
 	};
 	const handleDragStart = (e: React.DragEvent<HTMLDivElement>) =>
 		e.preventDefault();
+	const CustomCard = styled(Card)({
+		border: "2px solid #ce93d8"
+	})
+	const CustomImageCard = styled(Card)({
+		'&:hover':{
+			opacity: "0.5"
+		}
+	})
 	const items = whyChooseMe.map((item, index) => {
 		return (
 			<Box sx={{ margin: "20px" }} onDragStart={handleDragStart}>
-				<Card sx={{ width: "250" }}>
+				<CustomImageCard sx={{ width: "250" }}>
 					<CardMedia
 						component="img"
 						width="180"
@@ -62,7 +73,7 @@ const Home = () => {
 							{item.body}
 						</Typography>
 					</CardContent>
-				</Card>
+				</CustomImageCard>
 			</Box>
 		);
 	});
@@ -71,7 +82,7 @@ const Home = () => {
 		<Box>
 			<Grid container spacing={4}>
 				<Grid xs={12} item>
-					<Card style={{ display: "flex", justifyContent: "center" }}>
+					<CustomCard style={{ display: "flex", justifyContent: "center" }}>
 						<CardContent>
 							<Stack
 								direction={{ xs: "column", md: "row" }}
@@ -89,16 +100,12 @@ const Home = () => {
 									style={{
 										display: "inline-block",
 										margin: "0 0.5rem",
-										animation: "backInLeft",
-										animationDuration: "2s",
 									}}
 								/>
 								<Box
 									style={{
 										display: "inline-block",
 										margin: "0 0.5rem",
-										animation: "backInLeft",
-										animationDuration: "2s",
 									}}
 								>
 									<Typography
@@ -127,6 +134,7 @@ const Home = () => {
 									>
 										{intro_part1}
 									</Typography>
+									<br/>
 									<Typography
 										variant="body1"
 										gutterBottom
@@ -135,14 +143,21 @@ const Home = () => {
 									>
 										{intro_part2}
 									</Typography>
-									<Typography
-										variant="body1"
-										gutterBottom
-										fontFamily="Merriweather, serif"
-										fontWeight={400}
-									>
-										{heading3}
-									</Typography>
+									<br/>
+									{statistics3.map((value, index) => {
+										return (
+											<Typography
+												variant="body1"
+												gutterBottom
+												fontFamily="Merriweather, serif"
+												fontWeight={400}
+												key={index}
+											>
+												{`- ${value}`}
+											</Typography>
+										)
+									})}
+									<br/>
 									<Typography
 										variant="body1"
 										gutterBottom
@@ -157,9 +172,10 @@ const Home = () => {
 								</Box>
 							</Stack>
 						</CardContent>
-					</Card>
+					</CustomCard>
 				</Grid>
-				<Grid xs={12} item>
+				<Countup/>
+				{/* <Grid xs={12} item>
 					<Typography variant="h5">Services offered</Typography>
 				</Grid>
 				{servicesOffered.map((item, index) => {
@@ -172,7 +188,7 @@ const Home = () => {
 							</Card>
 						</Grid>
 					);
-				})}
+				})} */}
 				<Grid xs={12} item>
 					<Typography variant="h5">Why choose me?</Typography>
 				</Grid>

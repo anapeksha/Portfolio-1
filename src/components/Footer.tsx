@@ -5,6 +5,12 @@ import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import React from "react";
 
 const Footer = () => {
+	const CustomBottomNavigationAction = styled(BottomNavigationAction)({
+		'&:hover':{
+			transform: "scale(1.2)",
+			color: "#ce93d8"
+		}
+	})
 	return (
 		<BottomNavigation
 			onChange={(event: React.SyntheticEvent, value) => {
@@ -12,17 +18,17 @@ const Footer = () => {
 			}}
 			showLabels
 		>
-			<BottomNavigationAction
+			<CustomBottomNavigationAction
 				label="LinkedIn"
 				icon={<LinkedInIcon />}
 				value="https://www.linkedin.com/in/soumiliroy"
 			/>
-			<BottomNavigationAction
+			<CustomBottomNavigationAction
 				label="Instagram"
 				icon={<PinterestIcon />}
 				value="https://in.pinterest.com/sohavoc"
 			/>
-			<BottomNavigationAction
+			<CustomBottomNavigationAction
 				label="Email"
 				icon={<EmailIcon />}
 				value="mailto:soumili.roy.work@gmail.com"
