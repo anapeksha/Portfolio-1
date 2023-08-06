@@ -9,6 +9,7 @@ import {
 	Stack,
 	Typography,
 	styled,
+	keyframes
 } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
 import Countup from "../components/Countup";
@@ -41,11 +42,31 @@ const Home = () => {
 	};
 	const handleDragStart = (e: React.DragEvent<HTMLDivElement>) =>
 		e.preventDefault();
-	const CustomCard = styled(Card)({
+
+	const cardAnimation = keyframes`
+		0% {
+			transform: translateY(0);
+    		box-shadow: 0 0 10px 0 #000;
+		}
+		100% {
+			transform: translateY(-10px);
+    		box-shadow: none;
+    		animation-timing-function: linear;
+    		animation-delay: 1000000ms;
+		  }
+	`;
+
+	const CustomQuoteCard = styled(Card)({
+		background: "#ce93d8",
+		color: "black",
+	})
+
+	const CustomHeaderCard = styled(Card)({
 		border: "2px solid #ce93d8"
 	})
+
 	const CustomImageCard = styled(Card)({
-		'&:hover':{
+		'&:hover': {
 			opacity: "0.5"
 		}
 	})
@@ -82,7 +103,7 @@ const Home = () => {
 		<Box>
 			<Grid container spacing={4}>
 				<Grid xs={12} item>
-					<CustomCard style={{ display: "flex", justifyContent: "center" }}>
+					<CustomHeaderCard style={{ display: "flex", justifyContent: "center" }}>
 						<CardContent>
 							<Stack
 								direction={{ xs: "column", md: "row" }}
@@ -134,7 +155,7 @@ const Home = () => {
 									>
 										{intro_part1}
 									</Typography>
-									<br/>
+									<br />
 									<Typography
 										variant="body1"
 										gutterBottom
@@ -143,7 +164,7 @@ const Home = () => {
 									>
 										{intro_part2}
 									</Typography>
-									<br/>
+									<br />
 									{statistics3.map((value, index) => {
 										return (
 											<Typography
@@ -157,7 +178,7 @@ const Home = () => {
 											</Typography>
 										)
 									})}
-									<br/>
+									<br />
 									<Typography
 										variant="body1"
 										gutterBottom
@@ -172,9 +193,24 @@ const Home = () => {
 								</Box>
 							</Stack>
 						</CardContent>
-					</CustomCard>
+					</CustomHeaderCard>
 				</Grid>
-				<Countup/>
+				<Countup />
+				<Grid item xs={12}>
+					<CustomQuoteCard raised elevation={10} sx={{
+						shadowColor: "#ce93d8"
+					}}>
+						<CardContent>
+							<Typography fontFamily="'Philosopher', sans-serif" fontSize="2em">
+								"I study you. Take out secrets that makes your brand unique. Then, write a powerful story. The result? Content that not only connects with your target audience but also amplifies your brand's voice in ways you never thought possible."
+							</Typography>
+							<br />
+							<Typography fontSize="1.85em" fontFamily="'Edu SA Beginner', cursive">
+								- Soumili Roy, LinkedIn Strategist
+							</Typography>
+						</CardContent>
+					</CustomQuoteCard>
+				</Grid>
 				{/* <Grid xs={12} item>
 					<Typography variant="h5">Services offered</Typography>
 				</Grid>
