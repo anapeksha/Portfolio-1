@@ -39,7 +39,7 @@ const Modal = (props: any) => {
 					</Toolbar>
 				</AppBar>
 			)}
-			<DialogTitle>{props.heading}</DialogTitle>
+			<DialogTitle style={{backgroundColor: "#ce93d8", color: "black"}}>{props.heading}</DialogTitle>
 			<DialogContent>
 				<Typography variant="caption">
 					{prettyTime(props.modified as string)}, Updated
