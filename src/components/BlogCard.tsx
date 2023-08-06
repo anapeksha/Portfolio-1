@@ -50,7 +50,7 @@ const BlogCard = (props: ICard) => {
 				</Typography>
 			</CardContent>
 			<CardActions>
-				<Button size="small" onClick={props.handleOpen}>
+				<Button size="small" onClick={props.handleOpen} color="secondary">
 					Read More
 				</Button>
 			</CardActions>
