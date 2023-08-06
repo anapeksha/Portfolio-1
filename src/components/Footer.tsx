@@ -1,8 +1,8 @@
-import React from "react";
-import { BottomNavigation, BottomNavigationAction, styled } from "@mui/material";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailIcon from "@mui/icons-material/Email";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import { BottomNavigation, BottomNavigationAction } from "@mui/material";
+import React from "react";
 
 const Footer = () => {
 	const CustomBottomNavigationAction = styled(BottomNavigationAction)({
@@ -25,9 +25,8 @@ const Footer = () => {
 			/>
 			<CustomBottomNavigationAction
 				label="Instagram"
-				icon={<InstagramIcon />}
-				value="https://instagram.com/sohaa.struck"
-				onClick={() => console.log("hello")}
+				icon={<PinterestIcon />}
+				value="https://in.pinterest.com/sohavoc"
 			/>
 			<CustomBottomNavigationAction
 				label="Email"
