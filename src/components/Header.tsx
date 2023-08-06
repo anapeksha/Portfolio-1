@@ -11,6 +11,7 @@ import {
 	ListItemButton,
 	ListItemText,
 	Toolbar,
+	styled
 } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +26,13 @@ const Header = (props: any) => {
 	const handleDrawerToggle = () => {
 		setMobileOpen((prevState) => !prevState);
 	};
+
+	const CustomButton = styled(Button)({
+		'&:hover': {
+			backgroundColor: "#ce93d8",
+			color: "black"
+		}
+	})
 
 	const drawer = (
 		<Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
@@ -73,13 +81,14 @@ const Header = (props: any) => {
 						}}
 					>
 						{navItems.map((item) => (
-							<Button
+							<CustomButton
 								key={item.name}
 								sx={{ color: "#fff" }}
 								onClick={() => navigate(item.url)}
+								color="secondary"
 							>
 								{item.name}
-							</Button>
+							</CustomButton>
 						))}
 					</Box>
 				</Toolbar>
