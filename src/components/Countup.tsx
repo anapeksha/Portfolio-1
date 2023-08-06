@@ -15,7 +15,7 @@ const Countup = () => {
             <Grid xs={6} md={3} xl={3} item>
                 <CustomCard>
                     <CardContent><Typography fontSize="1.3em">
-                        <div style={{ fontSize: "3em" }}><CountUp start={0} end={40} duration={5} enableScrollSpy useEasing/>+</div> brands
+                        <div style={{ fontSize: "3em" }}><CountUp start={0} end={40} duration={5} enableScrollSpy useEasing scrollSpyOnce/>+</div> brands
                     </Typography></CardContent></CustomCard>
 
             </Grid>
@@ -23,7 +23,7 @@ const Countup = () => {
                 <CustomCard>
                     <CardContent>
                         <Typography fontSize="1.3em">
-                            <div style={{ fontSize: "3em" }}><CountUp start={0} end={95} duration={5} enableScrollSpy useEasing/>%</div> client retention
+                            <div style={{ fontSize: "3em" }}><CountUp start={0} end={95} duration={5} enableScrollSpy useEasing scrollSpyOnce/>%</div> client retention
                         </Typography>
                     </CardContent>
                 </CustomCard>
@@ -31,7 +31,7 @@ const Countup = () => {
             <Grid xs={6} md={3} xl={3} item>
                 <CustomCard>
                     <CardContent><Typography fontSize="1.3em">
-                        <div style={{ fontSize: "3em" }}><CountUp start={0} end={25} duration={5} enableScrollSpy useEasing/>+</div> projects delivered
+                        <div style={{ fontSize: "3em" }}><CountUp start={0} end={25} duration={5} enableScrollSpy useEasing scrollSpyOnce/>+</div> projects delivered
                     </Typography>
                     </CardContent></CustomCard>
             </Grid>
@@ -39,14 +39,14 @@ const Countup = () => {
                 <CustomCard>
                     <CardContent>
                         <Typography fontSize="1.3em">
-                            <div style={{ fontSize: "3em" }}><CountUp start={0} end={5} duration={5} enableScrollSpy useEasing/>+</div> years of market experience
+                            <div style={{ fontSize: "3em" }}><CountUp start={0} end={5} duration={5} enableScrollSpy useEasing scrollSpyOnce/>+</div> years of market experience
                         </Typography>
                     </CardContent></CustomCard>
             </Grid>
             <Grid xs={6} md={3} xl={3} item><CustomCard>
                 <CardContent>
                     <Typography fontSize="1.3em">
-                        <div style={{ fontSize: "3em" }}><CountUp start={0} end={90} duration={5} enableScrollSpy useEasing/>%</div> increase in brand reach
+                        <div style={{ fontSize: "3em" }}><CountUp start={0} end={90} duration={5} enableScrollSpy useEasing scrollSpyOnce/>%</div> increase in brand reach
                     </Typography>
                 </CardContent></CustomCard>
             </Grid>
@@ -54,7 +54,7 @@ const Countup = () => {
                 <CustomCard>
                     <CardContent>
                         <Typography fontSize="1.3em">
-                            <div style={{ fontSize: "3em" }}><CountUp start={0} end={10} duration={5} enableScrollSpy useEasing/>+</div> international client base
+                            <div style={{ fontSize: "3em" }}><CountUp start={0} end={10} duration={5} enableScrollSpy useEasing scrollSpyOnce/>+</div> international client base
                         </Typography>
                     </CardContent></CustomCard>
             </Grid>
@@ -62,7 +62,7 @@ const Countup = () => {
                 <CustomCard>
                     <CardContent>
                         <Typography fontSize="1.3em">
-                            <div style={{ fontSize: "3em" }}><CountUp start={0} end={100} duration={5} enableScrollSpy useEasing/>%</div> LinkedIn impressions
+                            <div style={{ fontSize: "3em" }}><CountUp start={0} end={100} duration={5} enableScrollSpy useEasing scrollSpyOnce/>%</div> LinkedIn impressions
                         </Typography>
                     </CardContent></CustomCard>
             </Grid>
@@ -70,7 +70,7 @@ const Countup = () => {
                 <CustomCard>
                     <CardContent>
                         <Typography fontSize="1.3em">
-                            <div style={{ fontSize: "3em" }}><CountUp start={0} end={10} duration={5} enableScrollSpy useEasing/>+</div> content collaborations
+                            <div style={{ fontSize: "3em" }}><CountUp start={0} end={10} duration={5} enableScrollSpy useEasing scrollSpyOnce/>+</div> content collaborations
                         </Typography>
                     </CardContent></CustomCard>
             </Grid>
