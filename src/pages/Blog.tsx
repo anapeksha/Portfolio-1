@@ -105,6 +105,7 @@ const Blog = () => {
 					heading={modalData.fields.heading}
 					modified={modalData.sys.updatedAt}
 					body={documentToReactComponents(modalData.fields.body, options)}
+					image={modalData.fields.bannerImage && modalData.fields.bannerImage.fields.file.url}
 				/>
 			)}
 		</Grid>
