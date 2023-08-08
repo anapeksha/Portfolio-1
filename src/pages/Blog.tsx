@@ -15,6 +15,7 @@ const Blog = () => {
 	const [blogs, setBlogs] = useState<any>();
 	const [open, setOpen] = useState(false);
 	const [modalData, setModalData] = useState<any>();
+	const [hasImage, setHasImage] = useState<boolean>(false);
 	const [loading, setLoading] = useState(false);
 	const client = createClient({
 		accessToken: contentfulConfig.CONTENTFUL_TOKEN as string,
@@ -63,9 +64,8 @@ const Blog = () => {
 				return <Divider />;
 			},
 			[BLOCKS.QUOTE]: (node, children) => {
-				return <Blockquote>{children}</Blockquote>;
+				return <Blockquote><Typography paragraph variant="body2" style={{ marginLeft: "5px" }}>{children}</Typography></Blockquote>;
 			},
-			
 		},
 	};
 
@@ -73,31 +73,31 @@ const Blog = () => {
 		<Grid container spacing={4}>
 			{loading
 				? [...Array(20)].map((x, i) => {
-						return (
-							<Grid xs={6} md={3} xl={2} item key={i}>
-								<Skeleton
-									variant="rectangular"
-									animation="pulse"
-									height={150}
-								/>
-							</Grid>
-						);
-				  })
+					return (
+						<Grid xs={6} md={3} xl={2} item key={i}>
+							<Skeleton
+								variant="rectangular"
+								animation="pulse"
+								height={150}
+							/>
+						</Grid>
+					);
+				})
 				: blogs &&
-				  blogs.map((blog: any, index: any) => {
-						return (
-							<Grid xs={6} md={3} xl={2} item key={index}>
-								<BlogCard
-									heading={blog.fields.heading}
-									description={blog.fields.description}
-									handleOpen={() => {
-										setOpen(true);
-										setModalData(blog);
-									}}
-								/>
-							</Grid>
-						);
-				  })}
+				blogs.map((blog: any, index: any) => {
+					return (
+						<Grid xs={6} md={3} xl={2} item key={index}>
+							<BlogCard
+								heading={blog.fields.heading}
+								description={blog.fields.description}
+								handleOpen={() => {
+									setOpen(true);
+									setModalData(blog);
+								}}
+							/>
+						</Grid>
+					);
+				})}
 			{modalData && (
 				<Modal
 					open={open}

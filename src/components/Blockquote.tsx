@@ -1,10 +1,10 @@
-import { styled } from "@mui/material";
+import { styled, Box } from "@mui/material";
 import { grey } from "@mui/material/colors";
 
-const Blockquote = styled("div")({
+const Blockquote = styled(Box)({
 	fontStyle: "italic",
-	color: grey[300],
-	borderLeft: `3px solid ${grey["A100"]}`,
+	color: grey[100],
+	borderLeft: `5px solid ${grey["A200"]}`,
 });
 
 export default Blockquote;
