@@ -23,7 +23,6 @@ import {
 	heading4,
 	intro_part1,
 	intro_part2,
-	intro_part3,
 	servicesOffered,
 	whyChooseMe,
 } from "../lib/Constants";
@@ -179,14 +178,6 @@ const Home = () => {
 										)
 									})}
 									<br />
-									<Typography
-										variant="body1"
-										gutterBottom
-										fontFamily="Merriweather, serif"
-										fontWeight={400}
-									>
-										{heading4}
-									</Typography>
 									<Typography variant="body1" fontWeight={900} fontSize={17}>
 										{callToAction}
 									</Typography>
@@ -202,7 +193,7 @@ const Home = () => {
 					}}>
 						<CardContent>
 							<Typography fontFamily="'Philosopher', sans-serif" fontSize="2em">
-								"I study you. Take out secrets that makes your brand unique. Then, write a powerful story. The result? Content that not only connects with your target audience but also amplifies your brand's voice in ways you never thought possible."
+								"{heading4}"
 							</Typography>
 							<br />
 							<Typography fontSize="1.85em" fontFamily="'Edu SA Beginner', cursive">
