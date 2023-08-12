@@ -6,27 +6,31 @@ import {
 	Card,
 	CardContent,
 	Grid,
+	MenuItem,
 	Snackbar,
 	TextField,
 	Typography,
 } from "@mui/material";
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import dayjs from "dayjs";
 import { useEffect, useRef, useState } from "react";
-import { connectFormData, emailJSConfig } from "../lib/Constants";
+import { connectFormData, emailJSConfig, servicesOffered } from "../lib/Constants";
 
 const Connect = () => {
 	const form = useRef<any>();
 	const [success, setSuccess] = useState(false);
-	const [error, setError] = useState(false);
 	const [open, setOpen] = useState(false);
+	const [tempServices, setServices] = useState<Array<string>>([]);
 	useEffect(() => {
 		setTimeout(() => {
 			setOpen(false);
-			setError(false);
 			setSuccess(false);
 		}, 3000);
-	}, [success, error]);
+	}, [success]);
+
 	const submitForm = (event: any) => {
 		event.preventDefault();
+		console.log(form);
 		emailjs
 			.sendForm(
 				emailJSConfig.SERVICE_ID as string,
@@ -37,10 +41,10 @@ const Connect = () => {
 			.then((result: any) => {
 				setSuccess(true);
 				setOpen(true);
-				console.log(result);
+				console.log(result, form);
 			})
 			.catch((error: any) => {
-				setError(false);
+				setSuccess(false);
 				setOpen(true);
 				console.log(error);
 			});
@@ -56,76 +60,115 @@ const Connect = () => {
 					{!success ? "Something went wrong" : "Submitted successfully"}
 				</Alert>
 			</Snackbar>
-			<Box
-				display="flex"
-				justifyContent="center"
-				alignItems="center"
-				height="100vh"
-			>
-				<Card>
-					<CardContent>
-						<Typography gutterBottom>Contact Us</Typography>
-						<form ref={form} onSubmit={submitForm}>
-							<Grid container spacing={1}>
-								{connectFormData.map((data, index) => {
-									if (data.required && data.name !== "message") {
-										return (
-											<Grid xs={12} sm={6} item key={index}>
-												<TextField
-													label={data.label}
-													name={data.name}
-													type={data.type}
-													variant="outlined"
-													fullWidth
-													required
-												/>
-											</Grid>
-										);
-									} else if (data.required && data.name === "message") {
-										return (
-											<Grid item xs={12}>
-												<TextField
-													label={data.label}
-													name={data.name}
-													multiline
-													rows={4}
-													placeholder="Type your message here"
-													variant="outlined"
-													fullWidth
-													required
-												/>
-											</Grid>
-										);
-									} else {
-										return (
-											<Grid xs={12} sm={6} item key={index}>
-												<TextField
-													label={data.label}
-													name={data.name}
-													type={data.type}
-													variant="outlined"
-													fullWidth
-												/>
-											</Grid>
-										);
-									}
-								})}
+				<Grid container item
+					spacing={0}
+					justifyContent="center"
+					sx={{ minHeight: '73vh' }}>
+					<Grid item xs={9}>
+						<Card>
+							<CardContent>
+								<Typography gutterBottom>Contact Us</Typography>
+								<form ref={form} onSubmit={submitForm}>
+									<Grid container spacing={1}>
+										{connectFormData.map((data, index) => {
+											if (data.name === "message") {
+												return (
+													<Grid item xs={12} key={index}>
+														<TextField
+															label={data.label}
+															name={data.name}
+															multiline
+															rows={4}
+															placeholder="Type your message here"
+															variant="outlined"
+															fullWidth
+															required={data.required}
+														/>
+													</Grid>
+												);
+											}
+											else if (data.name === "date-time") {
+												return (
+													<Grid xs={12} sm={6} item key={index}>
+														<DateTimePicker
+															disablePast
+															formatDensity="spacious"
+															slotProps={{
+																textField: {
+																	name: data.name,
+																	type: data.type,
+																	label: data.label,
+																	required: data.required
+																}
+															}} sx={{ display: "flex" }} />
+													</Grid>
+												)
+											}
+											else if (data.name === "services") {
+												return (
+													<Grid xs={12} sm={6} item key={index}>
+														<TextField
+															select
+															label={data.label}
+															name={data.name}
+															type={data.type}
+															required={data.required}
+															value={tempServices}
+															onChange={
+																(event)=>{
+																	setServices(
+																			typeof event.target.value === 'string' ? event.target.value.split(',') : event.target.value)
+																}
+															}
+															SelectProps={{
+																multiple: true
+															}}
+															fullWidth
+														>{
+															servicesOffered.map((option, optionIndex)=>{
+																return(
+																	<MenuItem key={optionIndex} value={option}>
+																		{option}
+																	</MenuItem>
+																)
+															})
+														}
+															</TextField>
+													</Grid>
+												)
+											}
+											else {
+												return (
+													<Grid xs={12} sm={6} item key={index}>
+														<TextField
+															label={data.label}
+															name={data.name}
+															type={data.type}
+															variant="outlined"
+															fullWidth
+															required={data.required}
+														/>
+													</Grid>
+												);
+											}
+										})}
 
-								<Grid item xs={12}>
-									<Button
-										type="submit"
-										variant="contained"
-										color="secondary"
-										fullWidth
-									>
-										Submit
-									</Button>
-								</Grid>
-							</Grid>
-						</form>
-					</CardContent>
-				</Card>
-			</Box>
+										<Grid item xs={12}>
+											<Button
+												type="submit"
+												variant="contained"
+												color="secondary"
+												fullWidth
+											>
+												Submit
+											</Button>
+										</Grid>
+									</Grid>
+								</form>
+							</CardContent>
+						</Card>
+					</Grid>
+				</Grid>
 		</>
 	);
 };
