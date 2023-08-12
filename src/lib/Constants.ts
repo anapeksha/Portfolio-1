@@ -93,8 +93,8 @@ const heading1 = "Soumili Roy";
 
 const heading2 = "Where Ideas meet Execution";
 
-const statistics3 = ["Increased LI impressions of clients by 75%+ after Massive Personal Branding.","Worked with 40+ freelance clients (International + National).", " Increased Social Media Impressions by 10% within 1 week.", "Helped LinkedIn family towards increased Inbound Leads."]
-	
+const statistics3 = ["Increased LI impressions of clients by 75%+ after Massive Personal Branding.", "Worked with 40+ freelance clients (International + National).", " Increased Social Media Impressions by 10% within 1 week.", "Helped LinkedIn family towards increased Inbound Leads."]
+
 const heading4 =
 	"I study you. Take out secrets that makes your brand unique. Then, write a powerful story. The result? Content that not only connects with your target audience but also amplifies your brand's voice in ways you never thought possible.";
 
@@ -159,6 +159,18 @@ const connectFormData = [
 		label: "Phone",
 		name: "ph-no",
 		required: false,
+	},
+	{
+		type: "text",
+		label: "Date and Time",
+		name: "date-time",
+		required: false,
+	},
+	{
+		type: "text",
+		label: "Services",
+		name: "services",
+		required: false
 	},
 	{
 		type: "text",
