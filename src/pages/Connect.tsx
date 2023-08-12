@@ -21,6 +21,10 @@ const Connect = () => {
 	const [success, setSuccess] = useState(false);
 	const [open, setOpen] = useState(false);
 	const [tempServices, setServices] = useState<Array<string>>([]);
+
+	const minAllowedTime = dayjs().set('hour', 11).startOf('hour');
+	const maxAllowedTime = dayjs().set('hour', 18).endOf('hour');
+
 	useEffect(() => {
 		setTimeout(() => {
 			setOpen(false);
@@ -93,6 +97,7 @@ const Connect = () => {
 														<DateTimePicker
 															disablePast
 															formatDensity="spacious"
+															minTime={minAllowedTime}
 															slotProps={{
 																textField: {
 																	name: data.name,
