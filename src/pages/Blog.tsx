@@ -15,7 +15,6 @@ const Blog = () => {
 	const [blogs, setBlogs] = useState<any>();
 	const [open, setOpen] = useState(false);
 	const [modalData, setModalData] = useState<any>();
-	const [hasImage, setHasImage] = useState<boolean>(false);
 	const [loading, setLoading] = useState(false);
 	const client = createClient({
 		accessToken: contentfulConfig.CONTENTFUL_TOKEN as string,
@@ -104,6 +103,7 @@ const Blog = () => {
 					setOpen={setOpen}
 					heading={modalData.fields.heading}
 					modified={modalData.sys.updatedAt}
+					created={modalData.sys.createdAt}
 					body={documentToReactComponents(modalData.fields.body, options)}
 					image={modalData.fields.bannerImage && modalData.fields.bannerImage.fields.file.url}
 				/>
