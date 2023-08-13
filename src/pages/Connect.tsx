@@ -1,7 +1,6 @@
 import emailjs from "@emailjs/browser";
 import {
 	Alert,
-	Box,
 	Button,
 	Card,
 	CardContent,
@@ -20,7 +19,7 @@ const Connect = () => {
 	const form = useRef<any>();
 	const [success, setSuccess] = useState(false);
 	const [open, setOpen] = useState(false);
-	const [tempServices, setServices] = useState<Array<string>>([]);
+	const [services, setServices] = useState<Array<string>>([]);
 
 	const minAllowedTime = dayjs().set('hour', 11).startOf('hour');
 	const maxAllowedTime = dayjs().set('hour', 18).endOf('hour');
@@ -28,8 +27,8 @@ const Connect = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			setOpen(false);
-			setSuccess(false);
 		}, 3000);
+		setSuccess(false);
 	}, [success]);
 
 	const submitForm = (event: any) => {
@@ -64,116 +63,116 @@ const Connect = () => {
 					{!success ? "Something went wrong" : "Submitted successfully"}
 				</Alert>
 			</Snackbar>
-				<Grid container item
-					spacing={0}
-					justifyContent="center"
-					sx={{ minHeight: '73vh' }}>
-					<Grid item xs={9}>
-						<Card>
-							<CardContent>
-								<Typography gutterBottom>Contact Us</Typography>
-								<form ref={form} onSubmit={submitForm}>
-									<Grid container spacing={1}>
-										{connectFormData.map((data, index) => {
-											if (data.name === "message") {
-												return (
-													<Grid item xs={12} key={index}>
-														<TextField
-															label={data.label}
-															name={data.name}
-															multiline
-															rows={4}
-															placeholder="Type your message here"
-															variant="outlined"
-															fullWidth
-															required={data.required}
-														/>
-													</Grid>
-												);
-											}
-											else if (data.name === "date-time") {
-												return (
-													<Grid xs={12} sm={6} item key={index}>
-														<DateTimePicker
-															disablePast
-															formatDensity="spacious"
-															minTime={minAllowedTime}
-															slotProps={{
-																textField: {
-																	name: data.name,
-																	type: data.type,
-																	label: data.label,
-																	required: data.required
-																}
-															}} sx={{ display: "flex" }} />
-													</Grid>
-												)
-											}
-											else if (data.name === "services") {
-												return (
-													<Grid xs={12} sm={6} item key={index}>
-														<TextField
-															select
-															label={data.label}
-															name={data.name}
-															type={data.type}
-															required={data.required}
-															value={tempServices}
-															onChange={
-																(event)=>{
-																	setServices(
-																			typeof event.target.value === 'string' ? event.target.value.split(',') : event.target.value)
-																}
+			<Grid container item
+				spacing={0}
+				justifyContent="center"
+				sx={{ minHeight: '70vh', marginTop: '7vh' }}>
+				<Grid item xs={9}>
+					<Card>
+						<CardContent>
+							<Typography variant="h4" gutterBottom>Let's talk!</Typography>
+							<form ref={form} onSubmit={submitForm}>
+								<Grid container spacing={1}>
+									{connectFormData.map((data, index) => {
+										if (data.name === "message") {
+											return (
+												<Grid item xs={12} key={index}>
+													<TextField
+														label={data.label}
+														name={data.name}
+														multiline
+														rows={4}
+														placeholder="Type your message here"
+														variant="outlined"
+														fullWidth
+														required={data.required}
+													/>
+												</Grid>
+											);
+										}
+										else if (data.name === "date-time") {
+											return (
+												<Grid xs={12} sm={6} item key={index}>
+													<DateTimePicker
+														disablePast
+														formatDensity="spacious"
+														minTime={minAllowedTime}
+														slotProps={{
+															textField: {
+																name: data.name,
+																type: data.type,
+																label: data.label,
+																required: data.required
 															}
-															SelectProps={{
-																multiple: true
-															}}
-															fullWidth
-														>{
-															servicesOffered.map((option, optionIndex)=>{
-																return(
+														}} sx={{ display: "flex" }} />
+												</Grid>
+											)
+										}
+										else if (data.name === "services") {
+											return (
+												<Grid xs={12} sm={6} item key={index}>
+													<TextField
+														select
+														label={data.label}
+														name={data.name}
+														type={data.type}
+														required={data.required}
+														value={services}
+														onChange={
+															(event) => {
+																setServices(
+																	typeof event.target.value === 'string' ? event.target.value.split(',') : event.target.value)
+															}
+														}
+														SelectProps={{
+															multiple: true
+														}}
+														fullWidth
+													>{
+															servicesOffered.sort().map((option, optionIndex) => {
+																return (
 																	<MenuItem key={optionIndex} value={option}>
 																		{option}
 																	</MenuItem>
 																)
 															})
 														}
-															</TextField>
-													</Grid>
-												)
-											}
-											else {
-												return (
-													<Grid xs={12} sm={6} item key={index}>
-														<TextField
-															label={data.label}
-															name={data.name}
-															type={data.type}
-															variant="outlined"
-															fullWidth
-															required={data.required}
-														/>
-													</Grid>
-												);
-											}
-										})}
+													</TextField>
+												</Grid>
+											)
+										}
+										else {
+											return (
+												<Grid xs={12} sm={6} item key={index}>
+													<TextField
+														label={data.label}
+														name={data.name}
+														type={data.type}
+														variant="outlined"
+														fullWidth
+														required={data.required}
+													/>
+												</Grid>
+											);
+										}
+									})}
 
-										<Grid item xs={12}>
-											<Button
-												type="submit"
-												variant="contained"
-												color="secondary"
-												fullWidth
-											>
-												Submit
-											</Button>
-										</Grid>
+									<Grid item xs={12}>
+										<Button
+											type="submit"
+											variant="contained"
+											color="secondary"
+											fullWidth
+										>
+											Submit
+										</Button>
 									</Grid>
-								</form>
-							</CardContent>
-						</Card>
-					</Grid>
+								</Grid>
+							</form>
+						</CardContent>
+					</Card>
 				</Grid>
+			</Grid>
 		</>
 	);
 };

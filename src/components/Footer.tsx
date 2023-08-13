@@ -17,6 +17,7 @@ const Footer = () => {
 				window.open(value);
 			}}
 			showLabels
+			sx={{ position: "sticky", bottom: 0}}
 		>
 			<CustomBottomNavigationAction
 				label="LinkedIn"
