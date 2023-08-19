@@ -67,7 +67,16 @@ const Connect = () => {
 					{!success ? "Something went wrong" : "Submitted successfully"}
 				</Alert>
 			</Snackbar>
-			<Grid container justifyContent="center" sx={{ marginTop: "15vh" }}>
+			<Grid
+				container
+				justifyContent="center"
+				sx={{
+					display: "flex",
+					height: { xs: "auto", md: "80vh" },
+					justifyContent: "center",
+					alignItems: "center",
+				}}
+			>
 				<Grid item xs={9}>
 					<Card>
 						<CardContent>
