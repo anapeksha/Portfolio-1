@@ -116,17 +116,25 @@ const Blog = () => {
 
 	return (
 		<>
-			<Divider textAlign="left" style={{ marginBottom: "2%" }}>
+			<Divider
+				textAlign="left"
+				style={{ marginBottom: "2%" }}
+				role="presentation"
+			>
 				<TagSelector setTagValue={setSortByTag} tags={tags} />
 			</Divider>
-			<Grid container spacing={4}>
+			<Grid
+				container
+				spacing={4}
+				sx={{ paddingBottom: { xs: "15%", md: "5%" } }}
+			>
 				{loading
 					? [...Array(20)].map((x, i) => {
 							return (
 								<Grid xs={6} md={3} xl={2} item key={i}>
 									<Skeleton
 										variant="rectangular"
-										animation="pulse"
+										animation="wave"
 										height={150}
 									/>
 								</Grid>
