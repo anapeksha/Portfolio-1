@@ -56,7 +56,10 @@ const Home = () => {
 	});
 	const items = whyChooseMe.map((item, index) => {
 		return (
-			<Box sx={{ margin: "20px" }} onDragStart={handleDragStart}>
+			<Box
+				sx={{ margin: "20px", paddingBottom: { xs: "15%", md: "5%" } }}
+				onDragStart={handleDragStart}
+			>
 				<CustomImageCard sx={{ width: "250" }}>
 					<CardMedia
 						component="img"
