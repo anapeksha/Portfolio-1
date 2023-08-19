@@ -93,7 +93,12 @@ const heading1 = "Soumili Roy";
 
 const heading2 = "Where Ideas meet Execution";
 
-const statistics3 = ["Increased LI impressions of clients by 75%+ after Massive Personal Branding.", "Worked with 40+ freelance clients (International + National).", " Increased Social Media Impressions by 10% within 1 week.", "Helped LinkedIn family towards increased Inbound Leads."]
+const statistics3 = [
+	"Increased LI impressions of clients by 75%+ after Massive Personal Branding.",
+	"Worked with 40+ freelance clients (International + National).",
+	" Increased Social Media Impressions by 10% within 1 week.",
+	"Helped LinkedIn family towards increased Inbound Leads.",
+];
 
 const heading4 =
 	"I study you. Take out secrets that makes your brand unique. Then, write a powerful story. The result? Content that not only connects with your target audience but also amplifies your brand's voice in ways you never thought possible.";
@@ -116,7 +121,7 @@ const servicesOffered = [
 	"Content Support",
 	"Webpage Content",
 	"Technical Writing",
-	"Others"
+	"Others",
 ];
 
 const emailJSConfig = {
@@ -140,13 +145,13 @@ const connectFormData = [
 	{
 		type: "text",
 		label: "First Name",
-		name: "first_name",
+		name: "first-name",
 		required: true,
 	},
 	{
 		type: "text",
 		label: "Last Name",
-		name: "last_name",
+		name: "last-name",
 		required: true,
 	},
 	{
@@ -158,20 +163,20 @@ const connectFormData = [
 	{
 		type: "number",
 		label: "Phone",
-		name: "ph_no",
+		name: "ph-no",
 		required: false,
 	},
 	{
 		type: "text",
 		label: "Date and Time",
-		name: "date_time",
+		name: "date-time",
 		required: false,
 	},
 	{
 		type: "text",
 		label: "Services",
 		name: "services",
-		required: false
+		required: false,
 	},
 	{
 		type: "text",
@@ -182,20 +187,20 @@ const connectFormData = [
 ];
 
 export {
-	navItems,
+	callToAction,
+	connectFormData,
+	contentfulConfig,
 	drawerWidth,
-	theme,
-	whyChooseMe,
-	servicesOffered,
 	emailJSConfig,
+	heading1,
+	heading2,
+	heading4,
 	intro_part1,
 	intro_part2,
 	intro_part3,
-	callToAction,
-	heading1,
-	heading2,
+	navItems,
+	servicesOffered,
 	statistics3,
-	heading4,
-	connectFormData,
-	contentfulConfig,
+	theme,
+	whyChooseMe,
 };
