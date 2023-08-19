@@ -27,14 +27,15 @@ const Modal = (props: any) => {
 	return (
 		<Dialog fullScreen={fullScreen} open={props.open} onClose={handleClose}>
 			{fullScreen && (
-				<AppBar sx={{ backgroundColor: "#ce93d8" }}>
+				<AppBar sx={{ backgroundColor: "#ce93d8", position: "sticky" }}>
 					<Toolbar>
 						<IconButton
 							edge="start"
-							color="inherit"
+							color="default"
 							aria-label="close"
 							size="small"
 							onClick={handleClose}
+							sx={{ color: "black" }}
 						>
 							<CloseIcon />
 						</IconButton>
@@ -42,7 +43,12 @@ const Modal = (props: any) => {
 				</AppBar>
 			)}
 			{!fullScreen ? (
-				<DialogTitle style={{ backgroundColor: "#ce93d8", color: "black" }}>
+				<DialogTitle
+					style={{
+						backgroundColor: "#ce93d8",
+						color: "black",
+					}}
+				>
 					{props.heading}
 				</DialogTitle>
 			) : (
