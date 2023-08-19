@@ -10,10 +10,15 @@ import {
 	TextField,
 	Typography,
 } from "@mui/material";
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import dayjs from "dayjs";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { TimePickerProps } from "@mui/x-date-pickers/TimePicker";
+import { Dayjs } from "dayjs";
 import { useEffect, useRef, useState } from "react";
-import { connectFormData, emailJSConfig, servicesOffered } from "../lib/Constants";
+import {
+	connectFormData,
+	emailJSConfig,
+	servicesOffered,
+} from "../lib/Constants";
 
 const Connect = () => {
 	const form = useRef<any>();
@@ -21,8 +26,10 @@ const Connect = () => {
 	const [open, setOpen] = useState(false);
 	const [services, setServices] = useState<Array<string>>([]);
 
-	const minAllowedTime = dayjs().set('hour', 11).startOf('hour');
-	const maxAllowedTime = dayjs().set('hour', 18).endOf('hour');
+	const disabledTime: TimePickerProps<Dayjs>["shouldDisableTime"] = (
+		value,
+		view
+	) => view === "hours" && value.hour() > 21 && value.hour() < 10;
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -33,7 +40,6 @@ const Connect = () => {
 
 	const submitForm = (event: any) => {
 		event.preventDefault();
-		console.log(form);
 		emailjs
 			.sendForm(
 				emailJSConfig.SERVICE_ID as string,
@@ -44,12 +50,10 @@ const Connect = () => {
 			.then((result: any) => {
 				setSuccess(true);
 				setOpen(true);
-				console.log(result, form);
 			})
 			.catch((error: any) => {
 				setSuccess(false);
 				setOpen(true);
-				console.log(error);
 			});
 	};
 	return (
@@ -63,14 +67,13 @@ const Connect = () => {
 					{!success ? "Something went wrong" : "Submitted successfully"}
 				</Alert>
 			</Snackbar>
-			<Grid container item
-				spacing={0}
-				justifyContent="center"
-				sx={{ minHeight: '70vh', marginTop: '7vh' }}>
+			<Grid container justifyContent="center" sx={{ marginTop: "15vh" }}>
 				<Grid item xs={9}>
 					<Card>
 						<CardContent>
-							<Typography variant="h4" gutterBottom>Let's talk!</Typography>
+							<Typography variant="h4" gutterBottom>
+								Let's talk!
+							</Typography>
 							<form ref={form} onSubmit={submitForm}>
 								<Grid container spacing={1}>
 									{connectFormData.map((data, index) => {
@@ -89,26 +92,26 @@ const Connect = () => {
 													/>
 												</Grid>
 											);
-										}
-										else if (data.name === "date-time") {
+										} else if (data.name === "date-time") {
 											return (
 												<Grid xs={12} sm={6} item key={index}>
 													<DateTimePicker
 														disablePast
 														formatDensity="spacious"
-														minTime={minAllowedTime}
+														shouldDisableTime={disabledTime}
 														slotProps={{
 															textField: {
 																name: data.name,
 																type: data.type,
 																label: data.label,
-																required: data.required
-															}
-														}} sx={{ display: "flex" }} />
+																required: data.required,
+															},
+														}}
+														sx={{ display: "flex" }}
+													/>
 												</Grid>
-											)
-										}
-										else if (data.name === "services") {
+											);
+										} else if (data.name === "services") {
 											return (
 												<Grid xs={12} sm={6} item key={index}>
 													<TextField
@@ -118,30 +121,31 @@ const Connect = () => {
 														type={data.type}
 														required={data.required}
 														value={services}
-														onChange={
-															(event) => {
-																setServices(
-																	typeof event.target.value === 'string' ? event.target.value.split(',') : event.target.value)
-															}
-														}
+														onChange={(event) => {
+															setServices(
+																typeof event.target.value === "string"
+																	? event.target.value.split(",")
+																	: event.target.value
+															);
+														}}
 														SelectProps={{
-															multiple: true
+															multiple: true,
 														}}
 														fullWidth
-													>{
-															servicesOffered.sort().map((option, optionIndex) => {
+													>
+														{servicesOffered
+															.sort()
+															.map((option, optionIndex) => {
 																return (
 																	<MenuItem key={optionIndex} value={option}>
 																		{option}
 																	</MenuItem>
-																)
-															})
-														}
+																);
+															})}
 													</TextField>
 												</Grid>
-											)
-										}
-										else {
+											);
+										} else {
 											return (
 												<Grid xs={12} sm={6} item key={index}>
 													<TextField

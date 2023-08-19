@@ -9,21 +9,19 @@ import {
 	Stack,
 	Typography,
 	styled,
-	keyframes
 } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
-import Countup from "../components/Countup";
 import "react-alice-carousel/lib/alice-carousel.css";
 import profilePicture from "../assets/img-profile.jpeg";
+import Countup from "../components/Countup";
 import {
 	callToAction,
 	heading1,
 	heading2,
-	statistics3,
 	heading4,
 	intro_part1,
 	intro_part2,
-	servicesOffered,
+	statistics3,
 	whyChooseMe,
 } from "../lib/Constants";
 
@@ -42,33 +40,20 @@ const Home = () => {
 	const handleDragStart = (e: React.DragEvent<HTMLDivElement>) =>
 		e.preventDefault();
 
-	const cardAnimation = keyframes`
-		0% {
-			transform: translateY(0);
-    		box-shadow: 0 0 10px 0 #000;
-		}
-		100% {
-			transform: translateY(-10px);
-    		box-shadow: none;
-    		animation-timing-function: linear;
-    		animation-delay: 1000000ms;
-		  }
-	`;
-
 	const CustomQuoteCard = styled(Card)({
 		background: "#ce93d8",
 		color: "black",
-	})
+	});
 
 	const CustomHeaderCard = styled(Card)({
-		border: "2px solid #ce93d8"
-	})
+		border: "2px solid #ce93d8",
+	});
 
 	const CustomImageCard = styled(Card)({
-		'&:hover': {
-			opacity: "0.5"
-		}
-	})
+		"&:hover": {
+			opacity: "0.5",
+		},
+	});
 	const items = whyChooseMe.map((item, index) => {
 		return (
 			<Box sx={{ margin: "20px" }} onDragStart={handleDragStart}>
@@ -102,7 +87,9 @@ const Home = () => {
 		<Box>
 			<Grid container spacing={4}>
 				<Grid xs={12} item>
-					<CustomHeaderCard style={{ display: "flex", justifyContent: "center" }}>
+					<CustomHeaderCard
+						style={{ display: "flex", justifyContent: "center" }}
+					>
 						<CardContent>
 							<Stack
 								direction={{ xs: "column", md: "row" }}
@@ -175,7 +162,7 @@ const Home = () => {
 											>
 												{`- ${value}`}
 											</Typography>
-										)
+										);
 									})}
 									<br />
 									<Typography variant="body1" fontWeight={900} fontSize={17}>
@@ -188,15 +175,22 @@ const Home = () => {
 				</Grid>
 				<Countup />
 				<Grid item xs={12}>
-					<CustomQuoteCard raised elevation={10} sx={{
-						shadowColor: "#ce93d8"
-					}}>
+					<CustomQuoteCard
+						raised
+						elevation={10}
+						sx={{
+							shadowColor: "#ce93d8",
+						}}
+					>
 						<CardContent>
 							<Typography fontFamily="'Philosopher', sans-serif" fontSize="2em">
 								"{heading4}"
 							</Typography>
 							<br />
-							<Typography fontSize="1.85em" fontFamily="'Edu SA Beginner', cursive">
+							<Typography
+								fontSize="1.85em"
+								fontFamily="'Edu SA Beginner', cursive"
+							>
 								- Soumili Roy, LinkedIn Strategist
 							</Typography>
 						</CardContent>

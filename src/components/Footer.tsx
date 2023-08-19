@@ -1,23 +1,27 @@
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import PinterestIcon from "@mui/icons-material/Pinterest";
-import { BottomNavigation, BottomNavigationAction, styled } from "@mui/material";
+import {
+	BottomNavigation,
+	BottomNavigationAction,
+	styled,
+} from "@mui/material";
 import React from "react";
 
 const Footer = () => {
 	const CustomBottomNavigationAction = styled(BottomNavigationAction)({
-		'&:hover':{
+		"&:hover": {
 			transform: "scale(1.2)",
-			color: "#ce93d8"
-		}
-	})
+			color: "#ce93d8",
+		},
+	});
 	return (
 		<BottomNavigation
 			onChange={(event: React.SyntheticEvent, value) => {
 				window.open(value);
 			}}
 			showLabels
-			sx={{ position: "sticky", bottom: 0}}
+			sx={{ width: "100%", position: "fixed", bottom: 0 }}
 		>
 			<CustomBottomNavigationAction
 				label="LinkedIn"
