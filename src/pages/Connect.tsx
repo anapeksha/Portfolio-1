@@ -32,10 +32,16 @@ const Connect = () => {
 	) => view === "hours" && value.hour() > 21 && value.hour() < 10;
 
 	useEffect(() => {
-		setTimeout(() => {
-			setOpen(false);
-		}, 3000);
-		setSuccess(false);
+		if (success === true) {
+			setTimeout(() => {
+				setOpen(false);
+				setSuccess(false);
+			}, 3000);
+		} else {
+			setTimeout(() => {
+				setOpen(false);
+			}, 3000);
+		}
 	}, [success]);
 
 	const submitForm = (event: any) => {
@@ -101,7 +107,7 @@ const Connect = () => {
 													/>
 												</Grid>
 											);
-										} else if (data.name === "date-time") {
+										} else if (data.name === "date_time") {
 											return (
 												<Grid xs={12} sm={6} item key={index}>
 													<DateTimePicker
