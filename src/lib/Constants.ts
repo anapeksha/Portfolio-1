@@ -145,13 +145,13 @@ const connectFormData = [
 	{
 		type: "text",
 		label: "First Name",
-		name: "first-name",
+		name: "first_name",
 		required: true,
 	},
 	{
 		type: "text",
 		label: "Last Name",
-		name: "last-name",
+		name: "last_name",
 		required: true,
 	},
 	{
@@ -163,13 +163,13 @@ const connectFormData = [
 	{
 		type: "number",
 		label: "Phone",
-		name: "ph-no",
+		name: "ph_no",
 		required: false,
 	},
 	{
 		type: "text",
 		label: "Date and Time",
-		name: "date-time",
+		name: "date_time",
 		required: false,
 	},
 	{
